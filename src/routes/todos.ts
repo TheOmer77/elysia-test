@@ -6,16 +6,17 @@ import {
   updateTodo,
 } from 'controllers/todos';
 import {
-  createTodoSchema,
-  deleteTodoSchema,
-  updateTodoSchema,
-} from 'schemas/todos';
+  createTodoHook,
+  deleteTodoHook,
+  todosSwaggerTags,
+  updateTodoHook,
+} from 'hooks/todos';
 
 const todosRouter = new Elysia();
 
-todosRouter.get('/', getTodos);
-todosRouter.post('/', createTodo, createTodoSchema);
-todosRouter.put('/:id', updateTodo, updateTodoSchema);
-todosRouter.delete('/:id', deleteTodo, deleteTodoSchema);
+todosRouter.get('/', getTodos, todosSwaggerTags);
+todosRouter.post('/', createTodo, createTodoHook);
+todosRouter.put('/:id', updateTodo, updateTodoHook);
+todosRouter.delete('/:id', deleteTodo, deleteTodoHook);
 
 export default todosRouter;

@@ -1,5 +1,7 @@
 import { Elysia, type ErrorHandler } from 'elysia';
 import { staticPlugin } from '@elysiajs/static';
+import { swagger } from '@elysiajs/swagger';
+import type { ElysiaSwaggerConfig } from '@elysiajs/swagger/src/types';
 
 import router from './routes';
 
@@ -8,7 +10,18 @@ await Bun.build({
   outdir: './public',
 });
 
-const app = new Elysia();
+const swaggerConfig: ElysiaSwaggerConfig = {
+  documentation: {
+    info: { title: 'Bun + Elysia + React test TODO app', version: '1.0.0' },
+    tags: [
+      { name: 'Frontend', description: 'Frontend React app' },
+      {
+        name: 'TODOs',
+        description: 'Routes for interacting with the TODOs DB',
+      },
+    ],
+  },
+};
 
 const errorHandler: ErrorHandler = ({
   error,
@@ -38,9 +51,12 @@ const errorHandler: ErrorHandler = ({
   return { success: false, message: error.message };
 };
 
+const app = new Elysia();
+
 app.onError(errorHandler);
 
 app.use(staticPlugin());
+app.use(swagger(swaggerConfig));
 
 app.use(router);
 
