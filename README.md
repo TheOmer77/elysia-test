@@ -12,4 +12,5 @@ To start the development server run:
 bun run dev
 ```
 
-Open http://localhost:3000/ with your browser to see the result.
+Open [localhost:3000](http://localhost:3000/) in your browser to see the frontend app. \
+You can view & test all API routes at [localhost:3000/swagger](http://localhost:3000/swagger)
