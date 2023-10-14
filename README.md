@@ -1,13 +1,13 @@
-# Elysia with Bun runtime
+# Elysia with Bun test project
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
-```
+This is a test TODO list app built with Bun, Elysia and React.
 
-## Development
+![TODO app screenshot](./screenshot.png)
+
+## Running the project
+
 To start the development server run:
+
 ```bash
 bun run dev
 ```
