@@ -1,4 +1,4 @@
-# Elysia with Bun test project
+# Bun + Elysia + React test TODO app
 
 This is a test TODO list app built with Bun, Elysia and React.
 
